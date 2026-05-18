@@ -87,25 +87,47 @@ const Quiz = ({ experimentId, subject }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
-            className="text-center py-6"
+            className="text-center py-4"
           >
-            <span className="text-4xl mb-4 block">🎓</span>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
+            {/* Pulsing visual icon ring */}
+            <div className="relative w-16 h-16 mx-auto mb-6 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg shadow-purple-500/30">
+              <div className="absolute inset-0.5 rounded-full bg-white dark:bg-slate-900 flex items-center justify-center">
+                <span className="text-3xl animate-bounce">🎓</span>
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
               Test Your Understanding!
             </h3>
-            <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-md mx-auto text-sm">
-              Complete a quick {questions.length}-question quiz on this experiment to earn **+50 XP** and work towards subject Badges!
+            
+            <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-md mx-auto text-xs font-semibold leading-relaxed">
+              Complete a quick {questions.length}-question conceptual quiz on this experiment to demonstrate your mastery, earn experience points, and unlock achievements!
             </p>
-            {previousHighScore !== -1 && (
-              <div className="mt-3 text-xs bg-slate-100 dark:bg-slate-800 py-1.5 px-3 rounded-full inline-block font-medium text-slate-600 dark:text-slate-300">
-                ⭐ Best Score: {previousHighScore}/{questions.length}
+
+            {/* Gamification Rewards Panel */}
+            <div className="flex flex-wrap justify-center gap-3 my-6">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                ⚡ +50 XP Reward
               </div>
-            )}
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                🏆 Subject Badge
+              </div>
+              {previousHighScore !== -1 && (
+                <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black border ${
+                  previousHighScore === questions.length
+                    ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"
+                    : "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20"
+                }`}>
+                  ⭐ Record: {previousHighScore}/{questions.length}
+                </div>
+              )}
+            </div>
+
             <button
               onClick={handleStart}
-              className="mt-6 px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold hover:scale-105 transition-transform duration-200 shadow-lg shadow-purple-500/20 text-sm"
+              className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105 active:scale-98 shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30"
             >
-              Start Quiz
+              Challenge Quiz →
             </button>
           </motion.div>
         ) : !quizFinished ? (
