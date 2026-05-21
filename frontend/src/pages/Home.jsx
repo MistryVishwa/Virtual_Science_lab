@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 const Home = () => {
   const [backendStatus, setBackendStatus] = useState("");
 
-  // 🔹 Backend test (page load pe)
   useEffect(() => {
     fetch("http://127.0.0.1:8000/")
       .then((res) => res.json())
@@ -14,34 +13,27 @@ const Home = () => {
   }, []);
 
   return (
-  <div
-    style={{
-      padding: "24px",
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-    }}
-  >
-    <div style={{ flex: 1 }}>
-      <h1>Virtual Science Lab</h1>
+    <div className="home-container">
+      {/* HERO SECTION */}
+      <div className="home-hero">
+        <h1>🌱 Virtual Science Lab</h1>
+        <p>
+          Explore interactive Biology, Chemistry, and Physics experiments with AI-powered simulations.
+        </p>
 
-      <p>
-        Explore interactive Biology, Chemistry, and Physics experiments
-      </p>
+        <div
+          className={`backend-status ${
+            backendStatus === "ok" ? "success" : "error"
+          }`}
+        >
+          {backendStatus === "ok"
+            ? "Backend Connected ✅"
+            : backendStatus}
+        </div>
+      </div>
 
-      {/* 🔹 Backend status indicator */}
-      <p style={{ color: "green", marginTop: "8px" }}>
-        {backendStatus}
-      </p>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "24px",
-          marginTop: "32px",
-        }}
-      >
+      {/* SUBJECT CARDS */}
+      <div className="card-grid">
         <SubjectCard
           title="Biology"
           description="Human anatomy and cell structures in 3D"
@@ -60,11 +52,10 @@ const Home = () => {
           link="/physics"
         />
       </div>
-    </div>
 
-    <Footer />
-  </div>
-);
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;
