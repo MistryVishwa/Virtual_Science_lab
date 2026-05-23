@@ -56,6 +56,12 @@ def get_chemistry_experiments():
             },
             {
                 "id": 4,
+                "title": "Acid Base Neutralization",
+                "description": "Observe how acids and bases react to form salt and water",
+                "slug": "acid-base-neutralization"
+            },
+            {
+                "id": 5,
                 "title": "Acid-Base Titration",
                 "description": "Simulation of an acid-base titration process",
                 "slug": "titration-experiment"
