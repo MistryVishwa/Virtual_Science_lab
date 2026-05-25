@@ -6,6 +6,7 @@ from app.api.progress import router as progress_router
 from app.api.notes import router as notes_router
 from app.api.reports import router as reports_router
 from app.api.recommendations import router as recommendations_router
+from app.api.sync import router as sync_router
 
 
 app = FastAPI(
@@ -30,6 +31,7 @@ app.include_router(progress_router)
 app.include_router(notes_router)
 app.include_router(reports_router)
 app.include_router(recommendations_router)
+app.include_router(sync_router)
 
 
 @app.get("/")
