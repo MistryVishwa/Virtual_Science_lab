@@ -63,3 +63,9 @@ class LabReportResponse(BaseModel):
     generated_at: str
     updated_at: str
 
+class ExperimentHistoryRecord(BaseModel):
+    user_id: str
+    experiment_name: str
+    subject: str
+    score: int
+    timestamp: str  # ISO Format

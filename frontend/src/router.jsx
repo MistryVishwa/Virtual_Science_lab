@@ -10,6 +10,7 @@ import Physics from "./pages/Physics";
 import Profile from "./pages/Profile";
 import ProgressDashboard from "./pages/ProgressDashboard";
 import ReportHistory from "./pages/ReportHistory";
+import MyProgress from './pages/MyProgress';
 
 const AppRouter = () => {
   return (
@@ -26,6 +27,7 @@ const AppRouter = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/progress" element={<ProgressDashboard />} />
         <Route path="/reports" element={<ReportHistory />} />
+        <Route path="/my-progress" element={<MyProgress />} />
       </Routes>
     </>
   );
