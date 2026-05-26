@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
 import ExperimentCard from "./ExperimentCard";
+import { EXPERIMENT_CATALOG } from "../data/experiments";
 
 const PhysicsHome = () => {
-  const [experiments, setExperiments] = useState([]);
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/physics/experiments")
-      .then((res) => res.json())
-      .then((data) => setExperiments(data.experiments))
-      .catch(() => console.error("Backend not connected"));
-  }, []);
+  const physicsExperiments = EXPERIMENT_CATALOG.filter(
+    (experiment) => experiment.subject === "physics"
+  );
 
   return (
     <div>
@@ -24,14 +19,14 @@ const PhysicsHome = () => {
           marginTop: "20px",
         }}
       >
-        {experiments.map((exp) => (
+        {physicsExperiments.map((exp) => (
           <ExperimentCard
-            key={exp.slug}
-            id={exp.slug}
+            key={exp.id}
+            id={exp.id}
             title={exp.title}
             description={exp.description}
-            subject="physics"
-            link={`/physics/${exp.slug}`}
+            subject={exp.subject}
+            link={exp.link}
             difficulty={exp.difficulty}
           />
         ))}

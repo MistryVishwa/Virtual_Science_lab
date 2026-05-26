@@ -43,6 +43,7 @@ export const OnlineStatusProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useOnlineStatus = () => {
   const context = useContext(OnlineStatusContext);
   if (context === undefined) {

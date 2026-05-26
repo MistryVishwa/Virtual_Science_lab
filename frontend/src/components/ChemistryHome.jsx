@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
 import ExperimentCard from "./ExperimentCard";
+import { EXPERIMENT_CATALOG } from "../data/experiments";
 
 const ChemistryHome = () => {
-  const [experiments, setExperiments] = useState([]);
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/chemistry/experiments")
-      .then((res) => res.json())
-      .then((data) => setExperiments(data.experiments))
-      .catch(() => console.error("Backend not connected"));
-  }, []);
+  const chemistryExperiments = EXPERIMENT_CATALOG.filter(
+    (experiment) => experiment.subject === "chemistry"
+  );
 
   return (
     <div>
@@ -24,14 +19,14 @@ const ChemistryHome = () => {
           marginTop: "20px",
         }}
       >
-        {experiments.map((exp) => (
+        {chemistryExperiments.map((exp) => (
           <ExperimentCard
-            key={exp.slug}
-            id={exp.slug}
+            key={exp.id}
+            id={exp.id}
             title={exp.title}
             description={exp.description}
-            subject="chemistry"
-            link={`/chemistry/${exp.slug}`}
+            subject={exp.subject}
+            link={exp.link}
             difficulty={exp.difficulty}
           />
         ))}
