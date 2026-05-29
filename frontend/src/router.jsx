@@ -9,6 +9,7 @@ import Chemistry from "./pages/Chemistry";
 import Physics from "./pages/Physics";
 import Profile from "./pages/Profile";
 import ProgressDashboard from "./pages/ProgressDashboard";
+import KnowledgeGraph from "./pages/KnowledgeGraph";
 
 const AppRouter = () => {
   return (
@@ -24,6 +25,7 @@ const AppRouter = () => {
         <Route path="/physics/*" element={<Physics />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/progress" element={<ProgressDashboard />} />
+        <Route path="/explore" element={<KnowledgeGraph />} />
       </Routes>
     </>
   );
