@@ -96,6 +96,24 @@ const Navbar = () => {
           Physics
         </Link>
 
+        <Link
+          style={{
+            ...linkStyle,
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+          }}
+          to="/explore"
+          onMouseOver={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.15)")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.background = "transparent")
+          }
+        >
+          <span>🌐</span> Explore
+        </Link>
+
         {/* Offline / Online / Syncing Indicator */}
         {(!isOnline || isSyncing || pendingCount > 0) && (
           <div

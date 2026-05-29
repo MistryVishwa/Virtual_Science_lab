@@ -21,8 +21,7 @@ import Psychology from "./pages/Psychology";
 
 import Profile from "./pages/Profile";
 import ProgressDashboard from "./pages/ProgressDashboard";
-import ReportHistory from "./pages/ReportHistory";
-import MyProgress from "./pages/MyProgress";
+import KnowledgeGraph from "./pages/KnowledgeGraph";
 
 const AppRouter = () => {
   return (
@@ -65,8 +64,7 @@ const AppRouter = () => {
         {/* User Pages */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/progress" element={<ProgressDashboard />} />
-        <Route path="/reports" element={<ReportHistory />} />
-        <Route path="/my-progress" element={<MyProgress />} />
+        <Route path="/explore" element={<KnowledgeGraph />} />
       </Routes>
     </>
   );
