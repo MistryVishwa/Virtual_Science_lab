@@ -22,6 +22,14 @@ import Psychology from "./pages/Psychology";
 import Profile from "./pages/Profile";
 import ProgressDashboard from "./pages/ProgressDashboard";
 import KnowledgeGraph from "./pages/KnowledgeGraph";
+<<<<<<< Updated upstream
+=======
+import ReportHistory from "./pages/ReportHistory";
+import MyProgress from "./pages/MyProgress";
+import CareerExplorer from "./pages/CareerExplorer";
+import NotebookDashboard from "./pages/NotebookDashboard";
+import NotebookEditor from "./pages/NotebookEditor";
+>>>>>>> Stashed changes
 
 const AppRouter = () => {
   return (
@@ -65,6 +73,14 @@ const AppRouter = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/progress" element={<ProgressDashboard />} />
         <Route path="/explore" element={<KnowledgeGraph />} />
+<<<<<<< Updated upstream
+=======
+        <Route path="/reports" element={<ReportHistory />} />
+        <Route path="/my-progress" element={<MyProgress />} />
+        <Route path="/careers" element={<CareerExplorer />} />
+        <Route path="/notebook" element={<NotebookDashboard />} />
+        <Route path="/notebook/:experimentId" element={<NotebookEditor />} />
+>>>>>>> Stashed changes
       </Routes>
     </>
   );

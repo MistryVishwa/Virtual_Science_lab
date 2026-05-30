@@ -8,6 +8,12 @@ from app.api.notes import router as notes_router
 from app.api.reports import router as reports_router
 from app.api.recommendations import router as recommendations_router
 from app.api.sync import router as sync_router
+<<<<<<< Updated upstream
+=======
+from app.api.careers import router as careers_router
+from app.api.notebook import router as notebook_router
+
+>>>>>>> Stashed changes
 
 
 app = FastAPI(
@@ -36,6 +42,12 @@ app.include_router(notes_router)
 app.include_router(reports_router)
 app.include_router(recommendations_router)
 app.include_router(sync_router)
+<<<<<<< Updated upstream
+=======
+app.include_router(careers_router)
+app.include_router(notebook_router)
+
+>>>>>>> Stashed changes
 
 
 @app.get("/")
