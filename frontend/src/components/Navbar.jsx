@@ -246,25 +246,6 @@ const Navbar = () => {
           Reports
         </Link>
 
-<<<<<<< Updated upstream
-=======
-        <Link
-          style={{
-            ...linkStyle,
-            background: "rgba(255,255,255,0.12)",
-            border: "1px solid rgba(255,255,255,0.2)",
-          }}
-          to="/careers"
-          onMouseOver={(e) =>
-            (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
-          }
-          onMouseOut={(e) =>
-            (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
-          }
-        >
-          Careers
-        </Link>
-
         <Link
           style={{
             ...linkStyle,
@@ -281,8 +262,6 @@ const Navbar = () => {
         >
           Notebook
         </Link>
-
->>>>>>> Stashed changes
         <button
           onClick={toggleTheme}
           style={{
