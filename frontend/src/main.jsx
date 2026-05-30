@@ -8,7 +8,7 @@ import { OnlineStatusProvider } from "./context/OnlineStatusContext";
 import { GamificationProvider } from "./context/GamificationContext";
 import { ProgressProvider } from "./context/ProgressContext";
 import { NotesProvider } from "./context/NotesContext";
-import { ReportsProvider } from "./context/ReportsContext";
+import { NotebookProvider } from "./context/NotebookContext";
 import "./styles/globals.css";
 import "./index.css";
 import enableSparkleCursor from "./components/SparkleCursor";
@@ -46,9 +46,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <GamificationProvider>
             <ProgressProvider>
               <NotesProvider>
-                <ReportsProvider>    
-                   <Root />
-                </ReportsProvider>
+                <NotebookProvider>
+                  <ReportsProvider>    
+                     <Root />
+                  </ReportsProvider>
+                </NotebookProvider>
               </NotesProvider>
             </ProgressProvider>
           </GamificationProvider>
