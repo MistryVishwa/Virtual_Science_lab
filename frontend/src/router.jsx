@@ -14,8 +14,6 @@ import ProgressDashboard from "./pages/ProgressDashboard";
 import KnowledgeGraph from "./pages/KnowledgeGraph";
 import ReportHistory from "./pages/ReportHistory";
 import MyProgress from "./pages/MyProgress";
-import NotebookDashboard from "./pages/NotebookDashboard";
-import NotebookEditor from "./pages/NotebookEditor";
 import TeamSessionLobby from "./pages/TeamSessionLobby";
 import CareerExplorer from "./pages/CareerExplorer";
 import NotebookDashboard from "./pages/NotebookDashboard";
