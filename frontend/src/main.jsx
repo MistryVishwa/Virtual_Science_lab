@@ -15,17 +15,12 @@ import "./styles/globals.css";
 import "./index.css";
 import enableSparkleCursor from "./components/SparkleCursor";
 
-// Service Worker registration
 if (typeof window !== "undefined" && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("/sw.js")
-      .then((reg) => {
-        console.log("Service Worker registered with scope: ", reg.scope);
-      })
-      .catch((err) => {
-        console.error("Service Worker registration failed: ", err);
-      });
+      .then((reg) => console.log("Service Worker registered:", reg.scope))
+      .catch((err) => console.error("Service Worker registration failed:", err));
   });
 }
 
@@ -33,9 +28,7 @@ if (typeof window !== "undefined" && "serviceWorker" in navigator) {
 function Root() {
   const { sparkleEnabled } = useTheme();
   useEffect(() => {
-    if (sparkleEnabled) {
-      enableSparkleCursor();
-    }
+    if (sparkleEnabled) enableSparkleCursor();
   }, [sparkleEnabled]);
   return <AppRouter />;
 }
@@ -51,8 +44,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <NotebookProvider>
                   <PredictionProvider>
                     <CollaborationProvider>
-                      <ReportsProvider>    
-                         <Root />
                       <ReportsProvider>
                         <Root />
                       </ReportsProvider>
