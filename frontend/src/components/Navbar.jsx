@@ -181,6 +181,24 @@ const Navbar = () => {
             border: "1px solid rgba(255,255,255,0.2)",
           }}
           to="/notebook"
+          to="/careers"
+          onMouseOver={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
+          }
+        >
+          Notebook
+        </Link>
+
+        <Link
+          style={{
+            ...linkStyle,
+            background: "rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.2)",
+          }}
+          to="/notebook"
           onMouseOver={(e) =>
             (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
           }
@@ -214,6 +232,31 @@ const Navbar = () => {
             background: "rgba(255,255,255,0.12)",
             border: "1px solid rgba(255,255,255,0.2)",
           }}
+          to="/careers"
+          onMouseOver={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
+          }
+        >
+          Careers
+        </Link>
+        <Link
+          style={{ ...linkStyle, background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
+          to="/notebook"
+          onMouseOver={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.22)")}
+          onMouseOut={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
+        >
+          <span>🤝</span> Collaborate
+        </Link>
+
+        <Link
+          style={{
+            ...linkStyle,
+            background: "rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.2)",
+          }}
           to="/leaderboard"
           onMouseOver={(e) =>
             (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
@@ -224,6 +267,7 @@ const Navbar = () => {
         >
           🏆 Leaderboard
         </Link>
+
         <button
           onClick={toggleTheme}
           style={{ border: "none", background: "rgba(255,255,255,0.15)", color: "white", cursor: "pointer", fontSize: "18px", padding: "10px 14px", borderRadius: "10px" }}

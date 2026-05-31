@@ -14,6 +14,7 @@ import { CollaborationProvider } from "./context/CollaborationContext";
 import "./styles/globals.css";
 import "./index.css";
 import enableSparkleCursor from "./components/SparkleCursor";
+
 // Service Worker registration
 if (typeof window !== "undefined" && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -27,16 +28,15 @@ if (typeof window !== "undefined" && "serviceWorker" in navigator) {
       });
   });
 }
+
 // eslint-disable-next-line react-refresh/only-export-components
 function Root() {
   const { sparkleEnabled } = useTheme();
-
   useEffect(() => {
     if (sparkleEnabled) {
       enableSparkleCursor();
     }
   }, [sparkleEnabled]);
-
   return <AppRouter />;
 }
 
@@ -53,6 +53,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                     <CollaborationProvider>
                       <ReportsProvider>    
                          <Root />
+                      <ReportsProvider>
+                        <Root />
                       </ReportsProvider>
                     </CollaborationProvider>
                   </PredictionProvider>
@@ -65,5 +67,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-  

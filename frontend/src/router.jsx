@@ -19,6 +19,10 @@ import NotebookDashboard from "./pages/NotebookDashboard";
 import NotebookEditor from "./pages/NotebookEditor";
 import TeamSessionLobby from "./pages/TeamSessionLobby";
 import LeaderboardDashboard from "./pages/LeaderboardDashboard";
+import TeamSessionLobby from "./pages/TeamSessionLobby";
+import NotebookDashboard from "./pages/NotebookDashboard";
+import NotebookEditor from "./pages/NotebookEditor";
+import CareerExplorer from "./pages/CareerExplorer";
 
 const AppRouter = () => {
   return (
@@ -46,6 +50,7 @@ const AppRouter = () => {
         <Route path="/notebook/:experimentId" element={<NotebookEditor />} />
         <Route path="/collaborate" element={<TeamSessionLobby />} />
         <Route path="/leaderboard" element={<LeaderboardDashboard />} />
+        <Route path="/careers" element={<CareerExplorer />} />
       </Routes>
     </>
   );
