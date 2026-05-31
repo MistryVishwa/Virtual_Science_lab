@@ -9,11 +9,13 @@ import Home from "./pages/Home";
 import Biology from "./pages/Biology";
 import Chemistry from "./pages/Chemistry";
 import Physics from "./pages/Physics";
+
 import Profile from "./pages/Profile";
 import ProgressDashboard from "./pages/ProgressDashboard";
 import KnowledgeGraph from "./pages/KnowledgeGraph";
 import ReportHistory from "./pages/ReportHistory";
 import MyProgress from "./pages/MyProgress";
+import LeaderboardDashboard from "./pages/LeaderboardDashboard";
 import TeamSessionLobby from "./pages/TeamSessionLobby";
 import NotebookDashboard from "./pages/NotebookDashboard";
 import NotebookEditor from "./pages/NotebookEditor";
@@ -44,9 +46,7 @@ const AppRouter = () => {
         <Route path="/notebook" element={<NotebookDashboard />} />
         <Route path="/notebook/:experimentId" element={<NotebookEditor />} />
         <Route path="/collaborate" element={<TeamSessionLobby />} />
-        <Route path="/careers" element={<CareerExplorer />} />
-        <Route path="/notebook" element={<NotebookDashboard />} />
-        <Route path="/notebook/:experimentId" element={<NotebookEditor />} />
+        <Route path="/leaderboard" element={<LeaderboardDashboard />} />
         <Route path="/careers" element={<CareerExplorer />} />
       </Routes>
     </>

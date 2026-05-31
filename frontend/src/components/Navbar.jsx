@@ -180,6 +180,7 @@ const Navbar = () => {
             background: "rgba(255,255,255,0.12)",
             border: "1px solid rgba(255,255,255,0.2)",
           }}
+          to="/notebook"
           to="/careers"
           onMouseOver={(e) =>
             (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
@@ -188,7 +189,7 @@ const Navbar = () => {
             (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
           }
         >
-          Careers
+          Notebook
         </Link>
 
         <Link
@@ -247,9 +248,25 @@ const Navbar = () => {
           onMouseOver={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.22)")}
           onMouseOut={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
         >
-          Notebook
+          <span>🤝</span> Collaborate
         </Link>
 
+        <Link
+          style={{
+            ...linkStyle,
+            background: "rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.2)",
+          }}
+          to="/leaderboard"
+          onMouseOver={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
+          }
+        >
+          🏆 Leaderboard
+        </Link>
 
         <button
           onClick={toggleTheme}
