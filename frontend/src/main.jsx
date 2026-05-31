@@ -10,9 +10,11 @@ import { ProgressProvider } from "./context/ProgressContext";
 import { NotesProvider } from "./context/NotesContext";
 import { NotebookProvider } from "./context/NotebookContext";
 import { PredictionProvider } from "./context/PredictionContext";
+import { CollaborationProvider } from "./context/CollaborationContext";
 import "./styles/globals.css";
 import "./index.css";
 import enableSparkleCursor from "./components/SparkleCursor";
+
 // Service Worker registration
 if (typeof window !== "undefined" && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -26,16 +28,15 @@ if (typeof window !== "undefined" && "serviceWorker" in navigator) {
       });
   });
 }
+
 // eslint-disable-next-line react-refresh/only-export-components
 function Root() {
   const { sparkleEnabled } = useTheme();
-
   useEffect(() => {
     if (sparkleEnabled) {
       enableSparkleCursor();
     }
   }, [sparkleEnabled]);
-
   return <AppRouter />;
 }
 
@@ -49,9 +50,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <NotesProvider>
                 <NotebookProvider>
                   <PredictionProvider>
-                    <ReportsProvider>    
-                       <Root />
-                    </ReportsProvider>
+                    <CollaborationProvider>
+                      <ReportsProvider>
+                        <Root />
+                      </ReportsProvider>
+                    </CollaborationProvider>
                   </PredictionProvider>
                 </NotebookProvider>
               </NotesProvider>
@@ -62,5 +65,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-  
