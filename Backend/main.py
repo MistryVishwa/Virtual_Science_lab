@@ -11,10 +11,9 @@ from app.api.sync import router as sync_router
 from app.api.careers import router as careers_router
 from app.api.notebook import router as notebook_router
 from app.api.predictions import router as predictions_router
+from app.api.assistant import router as assistant_router
 from app.api.collaboration import router as collaboration_router
 from app.api.leaderboard import router as leaderboard_router
-
-
 app = FastAPI(
     title="Virtual Science Lab Backend",
     version="1.0.0"
@@ -44,10 +43,9 @@ app.include_router(sync_router)
 app.include_router(careers_router)
 app.include_router(notebook_router)
 app.include_router(predictions_router)
+app.include_router(assistant_router)
 app.include_router(collaboration_router)
 app.include_router(leaderboard_router)
-
-
 @app.get("/")
 def root():
     return {"status": "Backend is running 🚀"}
