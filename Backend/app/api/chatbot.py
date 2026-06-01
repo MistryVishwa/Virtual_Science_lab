@@ -1,13 +1,16 @@
 """
-Chatbot API Routes – Virtual Science Lab
+Chatbot API Routes - Virtual Science Lab
 POST /api/chatbot/ask
 """
 
+import logging
 import os
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 from typing import Optional
 from app.services.chatbot_service import generate_chatbot_response
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/chatbot", tags=["Chatbot"])
 
@@ -65,7 +68,8 @@ async def ask_chatbot(data: ChatRequest):
         return {"answer": answer, "source": source}
 
     except Exception as exc:
+        logger.exception("Unhandled error in /api/chatbot/ask: %s", exc)
         raise HTTPException(
             status_code=500,
-            detail=f"Failed to generate response: {str(exc)}",
+            detail="An internal error occurred. Please try again.",
         )
