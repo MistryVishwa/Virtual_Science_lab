@@ -24,7 +24,7 @@ const TeamSessionLobby = () => {
       if (exp) {
         navigate(exp.link);
       }
-    } catch (err) {
+    } catch {
       setError("Failed to create session");
     }
     setLoading(false);
@@ -44,7 +44,7 @@ const TeamSessionLobby = () => {
       } else {
         setError("Experiment for this session is not recognized.");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to join session. Check the code.");
       setLoading(false);
     }

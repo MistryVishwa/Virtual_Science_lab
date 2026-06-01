@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useNotebook } from "../context/NotebookContext";
@@ -100,7 +101,7 @@ const NotebookEditor = () => {
     setShowHistory(false);
   };
 
-  if (loading && !initialLoadDone.current) {
+  if (loading) {
     return <div className="min-h-screen flex items-center justify-center dark:bg-slate-900 text-slate-500">Loading editor...</div>;
   }
 

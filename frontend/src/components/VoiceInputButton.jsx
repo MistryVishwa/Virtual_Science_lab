@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function VoiceInputButton({ onTranscript, disabled }) {
   const [isListening, setIsListening] = useState(false);
-  const [recognition, setRecognition] = useState(null);
+  const recognitionRef = useRef(null);
 
   useEffect(() => {
     // Check for browser support
@@ -29,20 +29,26 @@ export default function VoiceInputButton({ onTranscript, disabled }) {
         setIsListening(false);
       };
 
-      setRecognition(rec);
+      recognitionRef.current = rec;
     }
+    
+    return () => {
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+      }
+    };
   }, [onTranscript]);
 
   const toggleListening = () => {
-    if (!recognition) {
+    if (!recognitionRef.current) {
       alert("Voice input is not supported in your browser.");
       return;
     }
     if (isListening) {
-      recognition.stop();
+      recognitionRef.current.stop();
       setIsListening(false);
     } else {
-      recognition.start();
+      recognitionRef.current.start();
       setIsListening(true);
     }
   };

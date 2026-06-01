@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useNotebook } from "../context/NotebookContext";
 import BackButton from "../components/BackButton";
 
-const formatSubject = (subject) => subject.charAt(0).toUpperCase() + subject.slice(1);
-
 const NotebookDashboard = () => {
   const { notebooks, loading } = useNotebook();
   const [searchTerm, setSearchTerm] = useState("");

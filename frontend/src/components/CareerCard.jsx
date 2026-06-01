@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 const CareerCard = ({ career, onClick }) => {
   const matchColor =

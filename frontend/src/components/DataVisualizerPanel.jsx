@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import React, { useState, useEffect } from "react";
 import {
   LineChart,
@@ -16,7 +17,7 @@ export default function DataVisualizerPanel({ experimentId }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [xLabel, setXLabel] = useState("Time (s)");
   const [yLabel, setYLabel] = useState("Velocity (m/s)");
-  const [dataPoints, setDataPoints] = useState([{ id: Date.now(), x: "", y: "" }]);
+  const [dataPoints, setDataPoints] = useState(() => [{ id: Date.now(), x: "", y: "" }]);
 
   useEffect(() => {
     const saved = localStorage.getItem(cacheKey);

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useMemo, useState, useCallback } from "react";
 import API_URL from "../config";
 import { offlineDb } from "../utils/offlineDb";
@@ -26,7 +27,7 @@ export const NotebookProvider = ({ children }) => {
       data.forEach(nb => { notebooksMap[nb.experiment_id] = nb; });
       setNotebooks(notebooksMap);
       offlineDb.saveAllNotebooks(notebooksMap);
-    } catch (err) {
+    } catch {
       const cached = await offlineDb.getNotebooks();
       if (cached) setNotebooks(cached);
     } finally {

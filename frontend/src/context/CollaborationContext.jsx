@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useRef, useCallback } from "react";
 import API_URL from "../config";
 
