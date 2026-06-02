@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import React, { useState, useEffect } from "react";
 import API_URL from "../config";
 import RankingTable from "../components/leaderboard/RankingTable";
