@@ -1,7 +1,145 @@
-from pydantic import BaseModel
+from typing import Optional
+
+from pydantic import BaseModel, Field
+
 
 class QueryRequest(BaseModel):
     question: str
 
+
 class QueryResponse(BaseModel):
+    answer: str
+
+
+class ExperimentNotesUpsertRequest(BaseModel):
+    user_id: str
+    experiment_id: str
+    observations: Optional[str] = Field(default=None, max_length=10000)
+    conclusions: Optional[str] = Field(default=None, max_length=10000)
+    learnings: Optional[str] = Field(default=None, max_length=10000)
+    notes: Optional[str] = Field(default=None, max_length=10000)
+
+
+class ExperimentNotesResponse(BaseModel):
+    user_id: str
+    experiment_id: str
+    observations: Optional[str] = None
+    conclusions: Optional[str] = None
+    learnings: Optional[str] = None
+    notes: Optional[str] = None
+    created_at: Optional[str] = None
+    updated_at: Optional[str] = None
+
+
+class LabReportGenerateRequest(BaseModel):
+    user_id: str = "default-student"
+    experiment_id: str
+
+
+class LabReportUpdateRequest(BaseModel):
+    title: Optional[str] = None
+    objective: Optional[str] = None
+    procedure: Optional[str] = None
+    observations: Optional[str] = None
+    results: Optional[str] = None
+    conclusions: Optional[str] = None
+    quiz_performance: Optional[str] = None
+    status: Optional[str] = "draft"
+
+
+class LabReportResponse(BaseModel):
+    id: int
+    user_id: str
+    experiment_id: str
+    title: str
+    subject: str
+    objective: str
+    procedure: str
+    observations: str
+    results: str
+    conclusions: str
+    quiz_performance: str
+    status: str
+    generated_at: str
+    updated_at: str
+
+class ExperimentHistoryRecord(BaseModel):
+    user_id: str
+    experiment_name: str
+    subject: str
+    score: int
+    timestamp: str  # ISO Format
+
+from typing import List
+
+class NotebookEntryUpsertRequest(BaseModel):
+    user_id: str
+    experiment_id: str
+    subject: str
+    title: str
+    objective: Optional[str] = None
+    procedure_summary: Optional[str] = None
+    observations: Optional[str] = None
+    results: Optional[str] = None
+    conclusions: Optional[str] = None
+    reflection: Optional[str] = None
+    tags: Optional[List[str]] = None
+
+class NotebookEntryResponse(BaseModel):
+    user_id: str
+    experiment_id: str
+    subject: str
+    title: str
+    objective: Optional[str] = None
+    procedure_summary: Optional[str] = None
+    observations: Optional[str] = None
+    results: Optional[str] = None
+    conclusions: Optional[str] = None
+    reflection: Optional[str] = None
+    tags: List[str] = []
+    version: int
+    created_at: str
+    updated_at: str
+
+class NotebookVersionResponse(BaseModel):
+    version: int
+    updated_at: str
+    objective: Optional[str] = None
+    procedure_summary: Optional[str] = None
+    observations: Optional[str] = None
+    results: Optional[str] = None
+    conclusions: Optional[str] = None
+    reflection: Optional[str] = None
+    tags: List[str] = []
+
+class PredictionResponse(BaseModel):
+    experiment_id: str
+    expected_difficulty: int
+    estimated_time_minutes: int
+    success_probability: int
+    readiness_level: str
+    reasons: List[str]
+    recommendations: List[str]
+    tags: List[str] = []
+
+class AssistantHelpRequest(BaseModel):
+    experiment_title: str
+    current_step: Optional[str] = None
+    user_question: str
+    student_notes: Optional[str] = None
+
+class AssistantHintRequest(BaseModel):
+    experiment_title: str
+    current_step: str
+    student_notes: Optional[str] = None
+
+class AssistantNotesAnalyzeRequest(BaseModel):
+    experiment_title: str
+    student_notes: str
+
+class AssistantSummaryRequest(BaseModel):
+    experiment_title: str
+    student_notes: str
+
+class AssistantResponse(BaseModel):
     answer: str
